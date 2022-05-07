@@ -2,7 +2,7 @@
  * @Author: hackrabbit
  * @Date: 2022-05-07 17:51:58
  * @LastEditors: hackrabbit
- * @LastEditTime: 2022-05-07 18:06:09
+ * @LastEditTime: 2022-05-07 18:23:52
  * @Description: 
  */
 
@@ -84,30 +84,7 @@ export default function LayoutPage() {
   </Layout>)
 }
 
-// export default function LayoutPage1() {
-//   return (
-//     <div>
-//       <nav>
-//         <ul>
-//           <li>
-//             <Link to="/">Home</Link>
-//           </li>
-//           <li>
-//             <Link to="/about">About</Link>
-//           </li>
-//           <li>
-//             <Link to="/dashboard/messages">Messages (Dashboard)</Link>
-//           </li>
-//           <li>
-//             <Link to="/list">Table</Link>
-//           </li>
-//         </ul>
-//       </nav>
-//       <hr />
-//       <Outlet />
-//     </div>
-//   );
-// }
+
 
 
 
