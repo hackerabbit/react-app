@@ -8,7 +8,7 @@
 import { useEffect, useState } from "react"
 import { Table, Popconfirm } from "antd"
 import { ColumnsType } from "antd/lib/table"
-import { get, post } from "../utils/request"
+import { get, post } from "../../utils/request"
 
 interface user {
   key: number,
@@ -56,7 +56,7 @@ export default function TableDemo() {
 
   function handleUpdate(record: user) {
     console.log(record)
-    
+
 
   }
 
