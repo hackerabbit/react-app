@@ -2,21 +2,37 @@
  * @Author: hackrabbit
  * @Date: 2022-05-07 15:39:02
  * @LastEditors: hackrabbit
- * @LastEditTime: 2022-05-07 17:52:43
+ * @LastEditTime: 2022-05-11 15:50:25
  * @Description: 
  */
-import React from "react";
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, Outlet, Link, useNavigate } from "react-router-dom";
 import Layout from "./pages/Layout";
+import Login from "./pages/Login";
+
 
 const About = React.lazy(() => import("./pages/About"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const List = React.lazy(() => import("./pages/Table"));
 
 
+
 export default function App() {
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      navigate('/')
+    } else {
+      navigate('/login')
+    }
+  }, [])
+  
+
   return (
     <Routes>
+      <Route path="/login" element={<Login />}></Route>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route

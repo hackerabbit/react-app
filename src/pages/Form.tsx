@@ -2,32 +2,18 @@
  * @Author: hackrabbit
  * @Date: 2022-05-06 16:00:50
  * @LastEditors: hackrabbit
- * @LastEditTime: 2022-05-06 16:25:47
+ * @LastEditTime: 2022-05-10 10:46:23
  * @Description: 
  */
 import { Form, Input, Button, Checkbox } from "antd"
-import { post } from '../utils/request'
 
-export default function FormDemo() {
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
-    let { username, password } = values;
-    post('/api/add', { username, password }).then(data => {
-      console.log(data)
-    })
-  };
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
-  };
-
-
+export default function FormDemo(props: any) {
   return (
     <Form
       name="basic"
       initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
+      onFinish={props.onFinish}
+      onFinishFailed={props.onFinishFailed}
       autoComplete="off"
     >
       <Form.Item

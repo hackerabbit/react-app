@@ -2,13 +2,16 @@
  * @Author: hackrabbit
  * @Date: 2022-05-06 17:40:27
  * @LastEditors: hackrabbit
- * @LastEditTime: 2022-05-07 15:26:53
+ * @LastEditTime: 2022-05-11 16:18:12
  * @Description: 
  */
 import { useEffect, useState } from "react"
 import { Table, Popconfirm } from "antd"
 import { ColumnsType } from "antd/lib/table"
 import { get, post } from "../../utils/request"
+
+import axios from "../../utils/axios"
+
 
 interface user {
   key: number,
@@ -62,7 +65,7 @@ export default function TableDemo() {
 
   useEffect(() => {
     if (dataSource.length === 0) {
-      get('/api/data').then(data => {
+      axios.get('/api/data').then((data: any) => {
         if (data.code === 1) { // 请求成功
           let list = data.data.list.map((item: { id: number, username: string, password: string }) => {
             return { key: item.id, name: item.username, password: item.password }
